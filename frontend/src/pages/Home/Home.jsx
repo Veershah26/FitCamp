@@ -89,9 +89,11 @@ export default function Home(props) {
           </div>
         </div>
       ) : Boolean(bodyFatPercentage) ? (
-        <div>
+        <div style={{ display: "flex", width: "100vw" }}>
           <div>
-            <h1 style={{ textAlign: "center" }}>Body Fat Percentage</h1>
+            <h1 style={{ textAlign: "center", width: "50vw" }}>
+              Body Fat Percentage
+            </h1>
             <Pie
               data={{
                 labels: ["Body Fat Percentage"],
@@ -109,9 +111,23 @@ export default function Home(props) {
             />
           </div>
           <div>
-            <h1>Recommended Exercises for you to achieve your goal!</h1>
-            {exercises.map((exercise) => (
-              <p>{exercise.exercise_name}</p>
+            <h1 style={{ marginBottom: "0", paddingBottom: "0" }}>
+              Recommended Exercises for you to achieve your goal!
+            </h1>
+            {exercises.map((exercise, index) => (
+              <>
+                <h3>
+                  {index + 1}. {exercise.exercise_name}
+                </h3>
+                <h5 style={{ margin: "0", padding: "0" }}>Preparation</h5>
+                <p style={{ margin: "0", padding: "0" }}>
+                  {exercise.preparation}
+                </p>
+                <h5 style={{ margin: "0", padding: "0" }}>Execution</h5>
+                <p style={{ margin: "0", padding: "0" }}>
+                  {exercise.execution}
+                </p>
+              </>
             ))}
           </div>
         </div>
